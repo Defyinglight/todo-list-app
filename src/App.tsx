@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [todos, setTodos] = useState<{ text: string; isCompleted: boolean }[]>([]);
+  const [filter, setFilter] = useState<'all' | 'completed' | 'uncompleted'>('all');
 
   const addTodo = (text: string) => {
     const newTodos = [...todos, { text, isCompleted: false }];
@@ -26,6 +27,12 @@ function App() {
     newTodos[index].text = newText;
     setTodos(newTodos);
   };
+
+  const filteredTodos = todos.filter(todo => {
+    if (filter === 'completed') return todo.isCompleted;
+    if (filter === 'uncompleted') return !todo.isCompleted;
+    return true;
+  });
 
   return (
     <div className="App">
@@ -56,8 +63,13 @@ function App() {
           Add
         </button>
       </div>
+      <div className="filter-buttons">
+        <button onClick={() => setFilter('all')}>All</button>
+        <button onClick={() => setFilter('completed')}>Completed</button>
+        <button onClick={() => setFilter('uncompleted')}>Uncompleted</button>
+      </div>
       <ul className="todo-list">
-        {todos.map((todo, index) => (
+        {filteredTodos.map((todo, index) => (
           <li
             key={index}
             className="todo-item"
