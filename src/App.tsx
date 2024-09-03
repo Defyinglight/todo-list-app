@@ -1,21 +1,46 @@
 import React, { useState } from 'react';
-import TodoList from './components/TodoList';
-import NewTodo from './components/NewTodo';
+import './App.css';
 
 function App() {
-  // State to hold the list of todos
   const [todos, setTodos] = useState<string[]>([]);
 
-  // Function to add a new todo
   const addTodo = (todo: string) => {
     setTodos([...todos, todo]);
   };
 
   return (
     <div className="App">
-      <h1>Todo List</h1>
-      <NewTodo addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <header className="app-header">
+        <h1>My Day</h1>
+        <p>{new Date().toDateString()}</p>
+      </header>
+      <div className="todo-input-container">
+        <input
+          type="text"
+          className="todo-input"
+          placeholder="Add a task"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') addTodo(e.currentTarget.value);
+          }}
+        />
+        <button className="add-todo-button" onClick={() => addTodo('New Task')}>
+          Add
+        </button>
+      </div>
+      <ul className="todo-list">
+        {todos.map((todo, index) => (
+          <li key={index} className="todo-item">
+            <input
+              type="checkbox"
+              className="todo-checkbox"
+              onChange={() => console.log('Complete task:', index)}
+            />
+            <span className="todo-text">{todo}</span>
+            <button className="edit-todo-button">Edit</button>
+            <button className="delete-todo-button">Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
