@@ -11,7 +11,7 @@ const NewTodo: React.FC<NewTodoProps> = ({ addTodo }) => {
     e.preventDefault();
     if (todo.trim() === '') return;
     addTodo(todo);
-    setTodo(''); // Clear the input field after adding a Todo
+    setTodo(''); 
   };
 
   return (
