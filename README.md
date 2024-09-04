@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+This is a simple, responsive Todo List web application built with React, Vite, and TypeScript. The app allows users to add, edit, complete, delete, and filter their tasks. It also features containerization using Docker for easy deployment.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Add new Todos
+Edit existing Todos
+Mark Todos as completed
+Delete Todos
+Filter Todos (All, Completed, Uncompleted)
+Responsive design with a clean and minimal UI
 
-Currently, two official plugins are available:
+Tech Stack
+React: Frontend library for building the user interface
+Vite: Development environment for fast builds and Hot Module Replacement
+TypeScript: Typed JavaScript to help prevent bugs and provide better developer experience
+Vitest: Testing framework to ensure the application works as expected
+Docker: Containerization for easy deployment
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Installation
+Prerequisites
+Node.js and npm installed (Node.js version 14 or later)
+Docker installed (for containerization)
 
-## Expanding the ESLint configuration
+Clone the Repository
+git clone https://github.com/yourusername/todo-list-app.git
+cd todo-list-app
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Install Dependencies
+npm install
 
-- Configure the top-level `parserOptions` property like this:
+Run the Application
+npm run dev
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Running Tests
+To run the unit tests, use:
+npm run test
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Docker Deployment
+To containerize and deploy the application using Docker:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Build the Docker image:
+docker build -t todo-list-app .
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Run the Docker container:
+docker run -p 8080:80 todo-list-app
+
+Usage
+Add a Task: Type a task description in the input box and click Add.
+Edit a Task: Click the Edit button next to the task to change its description.
+Complete a Task: Check the box next to a task to mark it as completed.
+Delete a Task: Click the Delete button to remove a task from the list.
+Filter Tasks: Use the buttons to filter between All, Completed, and Uncompleted tasks.
