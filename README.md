@@ -21,7 +21,7 @@ Node.js and npm installed (Node.js version 14 or later)
 Docker installed (for containerization)
 
 Clone the Repository
-git clone https://github.com/yourusername/todo-list-app.git
+git clone https://github.com/Defyinglight/todo-list-app.git
 cd todo-list-app
 
 Install Dependencies
