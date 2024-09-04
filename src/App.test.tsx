@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
+import { describe, test, expect } from 'vitest';
 
 test('adds a new todo', () => {
   render(<App />);
